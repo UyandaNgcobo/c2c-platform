@@ -1,0 +1,215 @@
+/*
+   SELLER DISCOVERY PAGE
+*/
+
+.sellers-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 2rem; }
+
+.seller-profile-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 2.5rem 1.5rem; display: flex; flex-direction: column; align-items: center; text-align: center; transition: transform 0.2s, box-shadow 0.2s; }
+.seller-profile-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); }
+
+.seller-avatar-large { width: 80px; height: 80px; background: linear-gradient(135deg, #232f3e, #3a4b61); color: #fff; font-size: 2.5rem; font-weight: 800; display: flex; justify-content: center; align-items: center; border-radius: 50%; margin-bottom: 1rem; box-shadow: 0 4px 10px rgba(35, 47, 62, 0.3); }
+.seller-username { font-size: 1.3rem; color: #111; margin-bottom: 0.4rem; }
+.seller-stats { font-size: 0.95rem; color: #555; font-weight: 600; margin-bottom: 0.5rem; }
+.seller-rating-stars { font-size: 0.85rem; color: #007185; margin-bottom: 1.5rem; }
+
+.view-store-btn { width: 100%; padding: 0.8rem; font-size: 1rem; text-decoration: none; text-align: center; }
+
+/*
+   SELLER STOREFRONT — HORIZONTAL HEADER
+*/
+.storefront-horizontal-header { background: #fff; border-radius: 8px; border: 1px solid #e0e0e0; padding: 2rem; display: flex; align-items: center; gap: 2.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+
+.storefront-avatar { width: 110px; height: 110px; background: linear-gradient(135deg, #232f3e, #4a627f); border-radius: 50%; color: #fff; font-size: 3rem; font-weight: 800; display: flex; justify-content: center; align-items: center; flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+
+.storefront-info-block { flex: 1; }
+.storefront-info-block h1 { font-size: 1.8rem; color: #111; margin-bottom: 0.5rem; }
+
+.storefront-meta-row { display: flex; gap: 1.5rem; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px dashed #eee; }
+.meta-item { font-size: 0.95rem; color: #444; font-weight: 500; display: flex; align-items: center; gap: 0.4rem; }
+
+.storefront-bio { font-size: 0.95rem; color: #555; line-height: 1.5; }
+
+.storefront-action-block { width: 200px; flex-shrink: 0; display: flex; flex-direction: column; justify-content: center; }
+
+/*
+   SELLER STOREFRONT — SPLIT LAYOUT (sidebar version)
+*/
+.storefront-layout-split { display: flex; gap: 2rem; align-items: flex-start; }
+
+.storefront-sidebar { width: 320px; display: flex; flex-direction: column; gap: 1.5rem; flex-shrink: 0; }
+
+.sidebar-box { background: #fff; border-radius: 8px; border: 1px solid #e0e0e0; padding: 1.5rem; }
+.sidebar-box h3 { font-size: 1.1rem; border-bottom: 1px solid #eee; padding-bottom: 0.8rem; margin-bottom: 1rem; color: #111; }
+
+.seller-bio { font-size: 0.95rem; color: #444; line-height: 1.6; }
+.sidebar-divider { border: none; border-top: 1px dashed #ddd; margin: 1.5rem 0; }
+
+.seller-details-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem; }
+.seller-details-list li { font-size: 0.95rem; color: #333; }
+.seller-details-list a { color: #007185; text-decoration: none; }
+.seller-details-list a:hover { text-decoration: underline; color: orange; }
+
+/* Mini reviews in sidebar */
+.mini-review { margin-bottom: 1.2rem; padding-bottom: 1.2rem; border-bottom: 1px solid #eee; }
+.mini-review:last-of-type { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.mini-review p { font-size: 0.9rem; font-style: italic; color: #444; margin: 0.4rem 0; line-height: 1.4; }
+.mini-review small { color: #777; font-weight: bold; }
+
+/* Storefront badges */
+.storefront-badges { display: flex; gap: 1rem; font-size: 0.95rem; }
+.badge-trusted { color: #2e7d32; font-weight: bold; }
+.badge-rating { color: #007185; }
+
+/* Main inventory area */
+.storefront-inventory { flex: 1; }
+.inventory-header { margin-bottom: 1.5rem; }
+.inventory-header h2 { font-size: 1.4rem; color: #111; margin-bottom: 30px; }
+
+/* MOBILE RESPONSIVE STOREFRONT */
+@media (max-width: 768px) {
+    
+    /* Stack the storefront header */
+    .storefront-horizontal-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem 1rem;
+        gap: 1.5rem;
+    }
+
+    /* Center the avatar */
+    .storefront-avatar {
+        margin: 0 auto;
+        width: 90px;
+        height: 90px;
+        font-size: 2.5rem;
+    }
+
+    /*  Stack the meta row */
+    .storefront-meta-row {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: center;
+        border-bottom: none; 
+        padding-bottom: 0;
+    }
+
+    /* Make action buttons full width */
+    .storefront-action-block {
+        width: 100%;
+        gap: 0.5rem;
+    }
+
+    /*  Handle the sidebar layout */
+    .storefront-layout-split {
+        flex-direction: column;
+    }
+
+    .storefront-sidebar {
+        width: 100%;
+    }
+
+    /* Adjust sellers grid */
+    .sellers-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 1rem;
+    }
+
+    /* Shrink the floating report button */
+    .floating-report-btn {
+        bottom: 15px;
+        right: 15px;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+    }
+
+    /* 8. HORIZONTAL PRODUCT TILES (MOBILE) */
+    .product-grid {
+        grid-template-columns: 1fr !important; 
+        width: 100%;
+    }
+    
+    .product-card {
+        flex-direction: row !important; 
+        height: 140px; 
+        width: 100%;
+    }
+    
+    /* Target the link wrapper */
+    .product-card > a {
+        display: block;
+        flex: 0 0 130px; 
+        height: 100%;
+    }
+    
+    .product-image-container {
+        width: 100% !important; 
+        height: 100%;
+        border-bottom: none;
+        border-right: 1px solid #eee;
+    }
+    
+    .product-details {
+        padding: 0.8rem 1rem;
+        justify-content: center;
+        flex: 1; 
+        min-width: 0; 
+    }
+    
+    .product-title {
+        font-size: 0.95rem;
+        margin-bottom: 0.2rem;
+    }
+    
+    .price {
+        font-size: 1.1rem;
+        margin-top: 0.5rem;
+    }
+
+    /* MOBILE FILTER OVERLAY */
+    .mobile-filter-toggle {
+        display: block !important;
+        width: 100%;
+        padding: 0.8rem;
+        background: #232f3e;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 1rem;
+        font-weight: bold;
+        margin-bottom: 1.5rem;
+        cursor: pointer;
+    }
+
+    .filter-sidebar {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 80%;
+        max-width: 320px;
+        height: 100vh;
+        z-index: 10000;
+        overflow-y: auto;
+        transition: left 0.3s ease-in-out;
+        border-radius: 0;
+        margin: 0;
+    }
+    
+    .filter-sidebar.active {
+        left: 0;
+    }
+
+    .filter-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+    }
+    
+    .filter-overlay.active {
+        display: block;
+    }
+}

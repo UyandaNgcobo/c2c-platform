@@ -1,0 +1,84 @@
+/* DASHBOARD / LISTINGS STYLING  */
+
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-header { margin-bottom: 2rem; } 
+
+.tab-container { 
+    display: flex; 
+    gap: 0.8rem; 
+    margin-bottom: 2rem; 
+    flex-direction: row; 
+    align-items: center; 
+}
+
+.tab-link { 
+    padding: 0.6rem 1.4rem; 
+    background: #e2e8f0; 
+    border-radius: 50px; 
+    text-decoration: none; 
+    color: #475569; 
+    font-weight: 600; 
+    font-size: 0.9rem; 
+    transition: 0.2s; 
+}
+
+.tab-link.active { background: #1a2332; color: #fff; }
+
+
+.admin-data-table { 
+    width: 100%;             
+    table-layout: fixed;    
+    border-collapse: collapse; 
+}
+
+.admin-table-container { 
+    width: 100%;             
+    background: #fff; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); 
+    border: 1px solid #e2e8f0; 
+    overflow: hidden;
+    margin-bottom: 2rem; 
+}
+/* The Table Cells  */
+.admin-data-table th, 
+.admin-data-table td { 
+    padding: 1.2rem 1.5rem; 
+    border-bottom: 1px solid #f1f5f9; 
+    vertical-align: middle; 
+}
+
+/* Header Cells */
+.admin-data-table th { 
+    background: #f8fafc; 
+    font-size: 0.75rem; 
+    text-transform: uppercase; 
+    letter-spacing: 0.05em; 
+    color: #64748b; 
+}
+
+/* Pagination */
+.pagination { display: flex; gap: 0.5rem; margin-top: 1.5rem; justify-content: center; }
+.page-btn { padding: 0.5rem 1rem; border: 1px solid #cbd5e1; border-radius: 4px; color: #475569; text-decoration: none; font-size: 0.9rem; }
+.page-btn.active { background: #1a2332; color: #fff; border-color: #1a2332; }
+
+.delete-btn-modern {
+    background-color: #fef2f2;       
+    border: 1px solid #fecaca;      
+    color: #dc3545;                 
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.delete-btn-modern:hover {
+    background-color: #fee2e2;      
+    border-color: #f87171;          
+}

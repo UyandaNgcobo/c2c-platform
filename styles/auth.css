@@ -1,0 +1,21 @@
+/* LOGIN & REGISTRATION PAGES */
+
+.login-wrapper { background-color: #f9f9f9; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+.login-card { background: white; padding: 2.5rem; width: 100%; max-width: 400px; border-radius: 0.8rem; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); border: 1px solid #eee; }
+.login-card form { display: flex; flex-direction: column; }
+
+.login-card h2 { margin-bottom: 1.5rem; color: #333; text-align: center; font-size: 1.8rem; }
+.login-card .logo-text { display: block; text-align: center; color: orange; font-weight: bold; font-size: 1.2rem; margin-bottom: 0.5rem; }
+
+.login-card .input-group { margin-bottom: 1.2rem; }
+.login-card .input-group label { display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: #666; }
+.login-card .input-group input { width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 0.4rem; font-size: 1rem; transition: border-color 0.3s; }
+.login-card .input-group input:focus { outline: none; border-color: orange; }
+
+.login-btn { width: 100%; padding: 0.9rem; background-color: orange; color: white; border: none; border-radius: 0.4rem; font-size: 1rem; font-weight: bold; cursor: pointer; transition: background 0.3s; margin-top: 1rem; }
+.login-btn:hover { background-color: #e69500; }
+
+.error-box { background-color: #fff1f1; color: #d9534f; padding: 0.8rem; border-radius: 0.4rem; margin-bottom: 1.5rem; font-size: 0.9rem; border: 1px solid #f5c6cb; text-align: center; }
+
+.back-home { display: block; text-align: center; margin-top: 1.5rem; color: #888; text-decoration: none; font-size: 0.9rem; }
+.back-home:hover { color: orange; }

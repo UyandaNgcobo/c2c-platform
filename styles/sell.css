@@ -1,0 +1,59 @@
+/* SELL PAGE — FORM & IMAGE UPLOADERS */
+
+.form-container { max-width: 800px; margin: 0 auto; background-color: transparent; width: 100%; }
+.form-subtitle { color: #666; margin-bottom: 2rem; }
+.sell-form { display: flex; flex-direction: column; gap: 1.5rem; }
+.form-section { background-color: white; border: 1px solid #e0e0e0; border-radius: 6px; padding: 2rem; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+.form-section h3 { font-size: 1.2rem; color: #232f3e; margin-bottom: 1.2rem; border-bottom: 1px solid #f0f0f0; padding-bottom: 0.5rem; }
+.section-help { font-size: 0.85rem; color: #888; margin-bottom: 1rem; }
+
+.form-row { display: flex; gap: 1rem; }
+.form-row .input-group { flex: 1; }
+.input-group { display: flex; flex-direction: column; margin-bottom: 1.2rem; }
+.input-group label { font-size: 0.9rem; font-weight: 600; color: #333; margin-bottom: 0.5rem; }
+.input-group input,
+.input-group select,
+.input-group textarea { padding: 0.8rem; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; transition: border-color 0.2s; }
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus { outline: none; border-color: orange; }
+
+.hidden-fields { display: none !important; }
+
+.price-field { margin-top: 1rem; background-color: #fcfcfc; padding: 1rem; border-radius: 4px; border: 1px solid #f0f0f0; }
+
+.submit-listing-btn { background-color: orange; color: white; border: none; padding: 1rem; font-size: 1.1rem; font-weight: bold; border-radius: 4px; cursor: pointer; transition: background 0.2s; margin-top: 1rem; }
+.submit-listing-btn:hover { background-color: #e69500; }
+
+/* IMAGE UPLOAD — GRID (legacy, static boxes) */
+.image-upload-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; }
+.upload-box { border: 2px dashed #ccc; border-radius: 6px; padding: 1rem; text-align: center; background-color: #fafafa; cursor: pointer; transition: border-color 0.2s; }
+.upload-box:hover { border-color: orange; }
+.upload-box label { display: block; cursor: pointer; font-size: 0.85rem; font-weight: bold; color: #555; }
+.upload-box input[type="file"] { margin-top: 0.5rem; font-size: 0.8rem; width: 100%; }
+
+/* IMAGE UPLOAD — DYNAMIC DROPZONE */
+.upload-dropzone { border: 2px dashed #ccc; border-radius: 8px; padding: 2.5rem; text-align: center; background-color: #fafafa; cursor: pointer; transition: all 0.2s ease; }
+.upload-dropzone:hover { border-color: orange; background-color: #fffbf5; }
+.upload-icon { font-size: 2.5rem; margin-bottom: 0.5rem; display: block; }
+
+.preview-grid { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+.preview-card { position: relative; width: 100px; height: 100px; border-radius: 6px; overflow: hidden; border: 1px solid #ddd; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+.preview-card img { width: 100%; height: 100%; object-fit: cover; }
+.remove-btn { position: absolute; top: 4px; right: 4px; background: rgba(220, 53, 69, 0.9); color: white; border: none; border-radius: 50%; width: 22px; height: 22px; font-size: 14px; font-weight: bold; cursor: pointer; display: flex; justify-content: center; align-items: center; transition: transform 0.2s; }
+.remove-btn:hover { transform: scale(1.1); background: red; }
+
+/* IMAGE UPLOAD — COMPACT REQUIRED GRID */
+.required-images-grid { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 0.5rem; }
+.single-upload-wrapper { width: 100px; height: 100px; }
+.upload-dropzone-sm { width: 100%; height: 100%; border: 2px dashed #ccc; border-radius: 6px; background-color: #fafafa; display: flex; flex-direction: column; justify-content: center; align-items: center; cursor: pointer; transition: all 0.2s ease; }
+.upload-dropzone-sm:hover { border-color: orange; background-color: #fffbf5; }
+.upload-icon-sm { font-size: 1.5rem; margin-bottom: 0.2rem; }
+.upload-dropzone-sm p { font-size: 0.75rem; color: #666; font-weight: 600; }
+
+/* FORM ERROR STATES */
+.error-banner { background-color: #fff8f8; border: 2px solid #dc3545 !important; color: #555; padding: 1rem; border-radius: 6px; margin-bottom: 1.5rem; font-weight: bold; display: none; text-align: center; box-shadow: 0 4px 6px rgba(220, 53, 69, 0.2); }
+.error-highlight { border: 2px solid #dc3545 !important; background-color: #fff8f8 !important; }
+.error-highlight p,
+.error-highlight .upload-icon-sm,
+.error-highlight .upload-icon { color: #dc3545 !important; }
