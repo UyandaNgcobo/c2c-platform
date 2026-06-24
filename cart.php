@@ -69,7 +69,7 @@ function payWithPaystack(e) {
     e.preventDefault();
 
     let handler = PaystackPop.setup({
-        key: 'pk_test_YOUR_PUBLIC_KEY_HERE', // public key
+        key: 'pk_test_73f6c47fc8ff88b56195c168ababa37cfa155e64', // public key
         email: '<?php echo $_SESSION['email'] ?? "customer@example.com"; ?>',
         amount: <?php echo $paystack_amount; ?>, // Amount is in kobo
         currency: 'ZAR',

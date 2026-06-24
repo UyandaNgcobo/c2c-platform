@@ -52,7 +52,7 @@ $total_pages = ceil($total_items / $limit);
 ?>
 
 <div class="main-wrapper" style="padding: 2rem 3rem; background: #f8fafc; min-height: 80vh;">
-    
+        <!-- <?php include 'includes/sidebar.php'; ?> -->
     <div class="admin-header">
         <h2>Dashboard</h2>
     </div>

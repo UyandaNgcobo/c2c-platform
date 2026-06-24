@@ -23,6 +23,7 @@ if ($result->num_rows === 0) {
 
 $product = $result->fetch_assoc();
 
+// Consolidate all images into a single array
 $raw_images = [$product['img_main'], $product['img_front'], $product['img_back'], $product['img_side'], $product['img_detail']];
 if (!empty($product['gallery_images'])) {
     $extra = json_decode($product['gallery_images'], true);
@@ -59,8 +60,8 @@ include 'includes/header.php';
                     </div>
                     
                     <div class="media-actions-bar">
-                        <button class="sleek-share-btn" onclick="copyLink()">📤 Share Link</button>
-                        <button class="sleek-report-btn">⚠️ Report Listing</button>
+                        <button class="sleek-share-btn" onclick="copyLink()">Share Link</button>
+                        <button class="sleek-report-btn">Report Listing</button>
                     </div>
                 </div>
             </div>
@@ -69,15 +70,16 @@ include 'includes/header.php';
                 
                 <div class="utility-bar">
                     <span class="brand-tag"><?php echo htmlspecialchars($product['brand']); ?></span>
-                    <span class="sold-count">🔥 <?php echo $product['units_sold']; ?> sold</span>
+                    <span class="sold-count">🔥 <?php echo $product['units_sold'] ?? 0; ?> sold</span>
                 </div>
 
                 <h1 class="product-page-title" style="margin-bottom: 0.3rem;"><?php echo htmlspecialchars($product['title']); ?></h1>
 
-<div class="product-quick-rating">
-    <span class="stars">⭐⭐⭐⭐⭐</span>
-    <a href="#reviews-section" class="rating-count">4.9 (12 ratings)</a>
-</div> 
+                <div class="product-quick-rating">
+                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                    <a href="#reviews-section" class="rating-count">4.9 (12 ratings)</a>
+                </div> 
+
                 <div class="seller-mini-card">
                     <div class="seller-avatar">👤</div>
                     <div class="seller-details">
@@ -91,38 +93,33 @@ include 'includes/header.php';
 
                 <hr class="divider">
 
-                <!-- Pricing Console -->
                 <div class="action-buttons" style="display: flex; gap: 1rem; width: 100%;">
-                        <?php 
-                        $current_user = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
+                    <?php 
+                    $current_user = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
+                    
+                    if ($product['seller_id'] === $current_user && $current_user !== 0): ?>
+                        <button disabled class="primary-btn" style="background: #e2e8f0; color: #64748b; cursor: not-allowed; width: 100%;">This is your listing</button>
                         
-                        if ($product['seller_id'] === $current_user && $current_user !== 0): ?>
-                            <button disabled class="primary-btn" style="background: #e2e8f0; color: #64748b; cursor: not-allowed; width: 100%;">This is your listing</button>
-                            
-                        // Scenario B: The item is already sold/delisted
-                        <?php elseif ($product['status'] !== 'active'): ?>
-                            <button disabled class="primary-btn" style="background: #fee2e2; color: #991b1b; cursor: not-allowed; width: 100%;">No longer available</button>
-                            
-                        // Scenario C: Active Auction
-                        <?php elseif ($is_auction): ?>
-                            <button class="primary-btn bid-color" style="flex: 1;">Place Bid</button>
-                            <button class="secondary-btn" style="flex: 1;">❤️ Watchlist</button>
-                            
-                        // Scenario D: Active Buy-It-Now (Show Real Cart Form!)
-                        <?php else: ?>
-                            <form action="cart.php" method="POST" style="flex: 1; display: flex;">
-                                <input type="hidden" name="action" value="add">
-                                <input type="hidden" name="listing_id" value="<?php echo $product['id']; ?>">
-                                <button type="submit" class="primary-btn" style="width: 100%;">Add to Cart</button>
-                            </form>
-                            
-                            <form action="watchlist.php" method="POST" style="flex: 1; display: flex;">
-                                <input type="hidden" name="action" value="toggle">
-                                <input type="hidden" name="listing_id" value="<?php echo $product['id']; ?>">
-                                <button type="submit" class="secondary-btn" style="width: 100%;">❤️ Wishlist</button>
-                            </form>
-                        <?php endif; ?>
-                    </div>
+                    <?php elseif ($product['status'] !== 'active'): ?>
+                        <button disabled class="primary-btn" style="background: #fee2e2; color: #991b1b; cursor: not-allowed; width: 100%;">No longer available</button>
+                        
+                    <?php elseif ($is_auction): ?>
+                        <button class="primary-btn bid-color" style="flex: 1;">Place Bid</button>
+                        <button class="secondary-btn" style="flex: 1;">❤️ Watchlist</button>
+                        
+                    <?php else: ?>
+                        <form action="add-to-cart.php" method="POST" style="flex: 1; display: flex;">
+                            <input type="hidden" name="listing_id" value="<?php echo $product['id']; ?>">
+                            <button type="submit" class="primary-btn" style="width: 100%;">Buy Now</button>
+                        </form>
+                        
+                        <form action="watchlist.php" method="POST" style="flex: 1; display: flex;">
+                            <input type="hidden" name="action" value="toggle">
+                            <input type="hidden" name="listing_id" value="<?php echo $product['id']; ?>">
+                            <button type="submit" class="secondary-btn" style="width: 100%;">❤️ Wishlist</button>
+                        </form>
+                    <?php endif; ?>
+                </div>
 
             </div>
         </div>
@@ -134,7 +131,6 @@ include 'includes/header.php';
             </div>
         </section>
 
-        <!--  AMAZON STYLE REVIEWS SECTION -->
         <section id="reviews-section" class="amazon-reviews-section">
             <h2>Customer Reviews</h2>
             
@@ -153,7 +149,6 @@ include 'includes/header.php';
                     </div>
                 </div>
 
-                <!-- testing reviews structure -->
                 <div class="reviews-feed-panel">
                     <h3>Top reviews from South Africa</h3>
                     
